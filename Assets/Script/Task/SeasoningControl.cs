@@ -18,6 +18,10 @@ public class SeasoningControl : MonoBehaviour
 
     public float _Sensitivity = 1f;
 
+    private bool _RotationComplete = false;
+    private bool _Salting = false;
+    private bool _Complete = false;
+
     private void Start()
     {
         _ShakerModels.SimpleForEach((_Shaker) =>
@@ -30,7 +34,9 @@ public class SeasoningControl : MonoBehaviour
 
     public void AwakeCall()
     {
-
+        _RotationComplete = false;
+        _Salting = false;
+        _Complete = false;
     }
 
     private void Update()
@@ -66,6 +72,12 @@ public class SeasoningControl : MonoBehaviour
 
             _TongsModels.DOKill();
             _TongsModels.DOLocalMove(TongsDefaultPosition, 0.3f);
+
+            if(_Complete && _RotationComplete && _Salting)
+            {
+                _Complete = false;
+                CoroutineUtils.PlayCoroutine(() => SceneManager.Instance.NextStep(), 0.5f);
+            }
         }
         else
         {
@@ -135,6 +147,8 @@ public class SeasoningControl : MonoBehaviour
                         return;
                     _child.rotation = newRotation;
                 });
+
+                _RotationComplete = true;
             }
             else
             {
@@ -142,13 +156,8 @@ public class SeasoningControl : MonoBehaviour
                 {
                     if (_Shaker.name != _IdSelection)
                         return;
-                    // Lấy khoảng cách di chuyển của ngón tay trên màn hình
                     Vector2 dragDelta = eventData.delta;
-
-                    // Chuyển đổi khoảng cách di chuyển thành khoảng cách trong thế giới 3D
                     Vector3 moveDelta = new Vector3(dragDelta.x, 0f, dragDelta.y) * _Sensitivity;
-
-                    // Di chuyển đối tượng theo khoảng cách mới
                     _Shaker.Translate(moveDelta, Space.World);
                     var Salt = _Shaker.FindChildByParent("Salt");
                     Salt.SetActive(true);
@@ -158,6 +167,8 @@ public class SeasoningControl : MonoBehaviour
                         _Effect.Play();
                     });
                 });
+
+                _Salting = true;
             }
         }
 
@@ -185,6 +196,8 @@ public class SeasoningControl : MonoBehaviour
                         _Effect.Stop();
                     });
                 });
+
+                CoroutineUtils.PlayCoroutine(() => _Complete = true, 3.0f);
             }
         }
     }

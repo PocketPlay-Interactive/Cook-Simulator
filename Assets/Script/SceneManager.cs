@@ -17,6 +17,7 @@ public class SceneManager : MonoSingleton<SceneManager>
     public SelectionControl _SelectionControl;
     public ChoppingControl _ChoppingControl;
     public SeasoningControl _SeasoningControl;
+    public CookingControl _CookingControl;
 
     //task
     private int _TaskIndex = -1;

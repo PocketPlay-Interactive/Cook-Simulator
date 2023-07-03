@@ -2235,6 +2235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 93609434}
   - component: {fileID: 93609435}
+  - component: {fileID: 93609436}
   m_Layer: 0
   m_Name: Full5
   m_TagString: Untagged
@@ -2332,6 +2333,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.017358955, y: 0.0012179464, z: -0.0006336402}
     m_Extent: {x: 0.018955547, y: 0.020652069, z: 0.018448556}
   m_DirtyAABB: 0
+--- !u!64 &93609436
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93609433}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: d30633d2bd965db4e89173c332e2f952, type: 2}
 --- !u!1 &95127454
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,6 +3856,7 @@ MonoBehaviour:
   _SelectionControl: {fileID: 807510388}
   _ChoppingControl: {fileID: 901668525}
   _SeasoningControl: {fileID: 1491180454}
+  _CookingControl: {fileID: 0}
 --- !u!4 &161649587
 Transform:
   m_ObjectHideFlags: 0
@@ -26164,6 +26180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 981842600}
+  - component: {fileID: 981842601}
   m_Layer: 0
   m_Name: Cooking
   m_TagString: Untagged
@@ -26189,6 +26206,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!114 &981842601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981842599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757b34a26115b2942bbd1efa01165110, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &986451211
 GameObject:
   m_ObjectHideFlags: 0
@@ -57794,6 +57823,7 @@ GameObject:
   - component: {fileID: 1843855923}
   - component: {fileID: 1843855925}
   - component: {fileID: 1843855924}
+  - component: {fileID: 1843855926}
   m_Layer: 0
   m_Name: Knob
   m_TagString: Untagged
@@ -57864,6 +57894,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843855922}
   m_Mesh: {fileID: 4300000, guid: 54758db05538b124da6d7a3145a355d5, type: 2}
+--- !u!65 &1843855926
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843855922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06962293, y: 0.06902121, z: 0.02997236}
+  m_Center: {x: 0, y: -0.00030090488, z: -0.00006617003}
 --- !u!1 &1846662803
 GameObject:
   m_ObjectHideFlags: 0
