@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SelectionControl : MonoBehaviour
 {
+    public void AwakeCall()
+    {
+
+    }    
+
     private void Update()
     {
         if (SceneManager.Instance.GetTask() != 0)
@@ -27,5 +33,10 @@ public class SelectionControl : MonoBehaviour
             return;
 
         SceneManager.Instance.Selection(hit.transform.name);
+    }
+
+    public void TouchCall(TouchType touch)
+    {
+
     }
 }

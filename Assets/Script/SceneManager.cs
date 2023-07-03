@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SceneManager : MonoSingleton<SceneManager>
 {
@@ -13,8 +14,12 @@ public class SceneManager : MonoSingleton<SceneManager>
         Manager.Instance.HideGlobalLoading();
     }
 
+    public SelectionControl _SelectionControl;
+    public ChoppingControl _ChoppingControl;
+    public SeasoningControl _SeasoningControl;
+
     //task
-    private int _TaskIndex = 0;
+    private int _TaskIndex = -1;
 
     public int GetTask() { return _TaskIndex; }
 
@@ -24,15 +29,9 @@ public class SceneManager : MonoSingleton<SceneManager>
 
     public void CreateGame()
     {
-        _TaskIndex = 0;
+        _TaskIndex = -1;
         _Id = "";
-        Step();
-    }
-
-    public void Step()
-    {
-        CameraControl.Instance.SetTask(_TaskIndex);
-        StateControl.Instance.SetTask(_TaskIndex);
+        NextStep();
     }
 
     public void NextStep()
@@ -40,11 +39,50 @@ public class SceneManager : MonoSingleton<SceneManager>
         _TaskIndex += 1;
         CameraControl.Instance.SetTask(_TaskIndex);
         StateControl.Instance.SetTask(_TaskIndex);
+
+        switch(_TaskIndex)
+        {
+            case 0:
+                _SelectionControl.AwakeCall();
+                break;
+            case 1:
+                _ChoppingControl.AwakeCall();
+                break;
+            case 2:
+                _SeasoningControl.AwakeCall();
+                break;
+        }    
+    }
+
+    public void TouchCall(TouchType touch, PointerEventData eventData)
+    {
+        switch (_TaskIndex)
+        {
+            case 0:
+                _SelectionControl.TouchCall(touch);
+                break;
+            case 1:
+                _ChoppingControl.TouchCall(touch);
+                break;
+            case 2:
+                _SeasoningControl.TouchCall(touch, eventData);
+                break;
+        }
     }
 
     public void Selection(string id)
     {
         _Id = id;
         NextStep();
+    }
+
+    public void WinGame()
+    {
+
+    }
+
+    public void LoseGame()
+    {
+
     }
 }
