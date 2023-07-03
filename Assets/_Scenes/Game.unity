@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17413834, g: 0.21776217, b: 0.2999592, a: 1}
+  m_IndirectSpecularColor: {r: 0.17413834, g: 0.21776219, b: 0.29995918, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4154,7 +4154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189569698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0555, y: 0.15, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1929997002}
@@ -22176,7 +22176,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &780872954
 GameObject:
   m_ObjectHideFlags: 0
@@ -24234,6 +24233,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Knife: {fileID: 189569699}
+  _Speed: 1
+  _LeftBound: -0.0555
+  _RightBound: 0
 --- !u!1 &905225866
 GameObject:
   m_ObjectHideFlags: 0
@@ -30722,7 +30724,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1112715759
 GameObject:
   m_ObjectHideFlags: 0
