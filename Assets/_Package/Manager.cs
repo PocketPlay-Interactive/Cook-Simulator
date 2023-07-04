@@ -23,7 +23,7 @@ public class Manager : MonoSingletonGlobal<Manager>
         if (!Session1)
             PrefManager.SetBool("Session 1", true);
 
-        ShowGlobalLoading();
+        ShowFastGlobalLoading();
     }
 
     //public bool IsOpen = true;
@@ -47,7 +47,7 @@ public class Manager : MonoSingletonGlobal<Manager>
         AudienceNetwork.AdSettings.SetAdvertiserTrackingEnabled(true);
 #endif
 
-        ShowGlobalLoading();
+        //ShowGlobalLoading();
 
         yield return null;
 #if FIREBASE_ENABLE
@@ -182,6 +182,14 @@ public class Manager : MonoSingletonGlobal<Manager>
     {
         if (LoadingGlobal != null)
             LoadingGlobal.Show();
+        isLoading = true;
+        timeLoading = 0;
+    }
+
+    public void ShowFastGlobalLoading()
+    {
+        if (LoadingGlobal != null)
+            LoadingGlobal.ShowFast();
         isLoading = true;
         timeLoading = 0;
     }

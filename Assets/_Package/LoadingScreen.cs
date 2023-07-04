@@ -7,6 +7,12 @@ public class LoadingScreen : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
 
+    public void ShowFast()
+    {
+        canvasGroup.alpha = 1;
+        this.gameObject.SetActive(true);
+    }
+
     public void Show()
     {
         canvasGroup.alpha = 0;
