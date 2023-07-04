@@ -84,7 +84,7 @@ public class Manager : MonoSingletonGlobal<Manager>
 #endif
 
         yield return new WaitUntil(() => RuntimeStorageData.IsReady);
-        UnityEngine.SceneManagement.SceneManager.LoadScene($"Game");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene($"Game");
     }
 
 #if FIREBASE

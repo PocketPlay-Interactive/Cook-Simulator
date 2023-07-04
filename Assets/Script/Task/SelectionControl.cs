@@ -32,7 +32,13 @@ public class SelectionControl : MonoBehaviour
             hit.transform.name != "T-Bone")
             return;
 
-        SceneManager.Instance.Selection(hit.transform.name);
+        Debug.Log(hit.transform.name);
+
+        if (hit.transform.name != "RibEye")
+            SceneManager.Instance.LoseGame();
+        else
+            SceneManager.Instance.Selection(hit.transform.name);
+
     }
 
     public void TouchCall(TouchType touch)

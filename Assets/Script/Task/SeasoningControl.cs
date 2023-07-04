@@ -9,6 +9,7 @@ public class SeasoningControl : MonoBehaviour
     private Vector2 _DragStartPosition;
 
     public Transform[] _Models;
+
     public Transform[] _ShakerModels;
     public Transform _TongsModels;
     private string _IdSelection = "";
@@ -37,6 +38,11 @@ public class SeasoningControl : MonoBehaviour
         _RotationComplete = false;
         _Salting = false;
         _Complete = false;
+
+        _Models.SimpleForEach((_Model) =>
+        {
+            _Model.localRotation = Quaternion.Euler(180f, 0f, 0f);
+        });
     }
 
     private void Update()

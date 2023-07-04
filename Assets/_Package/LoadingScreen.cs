@@ -5,12 +5,7 @@ using UnityEngine;
 
 public class LoadingScreen : MonoBehaviour
 {
-    private CanvasGroup canvasGroup;
-
-    private void Awake()
-    {
-        canvasGroup = this.GetComponent<CanvasGroup>();
-    }
+    public CanvasGroup canvasGroup;
 
     public void Show()
     {

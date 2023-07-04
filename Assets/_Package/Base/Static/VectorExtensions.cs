@@ -170,4 +170,9 @@ public static class ColorExtensions
         color.a = a;
         return color;
     }
+
+    public static float GetAlpha(this Color color)
+    {
+        return color.a;
+    }
 }

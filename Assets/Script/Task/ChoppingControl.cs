@@ -120,7 +120,7 @@ public class ChoppingControl : MonoBehaviour
             if (_KnifeObject.localPosition.y <= -0.03791597)
             {
                 var distance = Mathf.Abs(_Knife.position.x - -0.0555f);
-                if(distance >= center * 0.5f)
+                if(distance >= center * 0.65f)
                     SceneManager.Instance.LoseGame();
                 else
                 {

@@ -14,10 +14,16 @@ public class SceneManager : MonoSingleton<SceneManager>
         Manager.Instance.HideGlobalLoading();
     }
 
+    //public Transform _LoseUI;
+    //public Transform _WinUI;
+
+    [Header("Control")]
+
     public SelectionControl _SelectionControl;
     public ChoppingControl _ChoppingControl;
     public SeasoningControl _SeasoningControl;
     public CookingControl _CookingControl;
+    public ServingControl _ServingControl;
 
     //task
     private int _TaskIndex = -1;
@@ -40,6 +46,7 @@ public class SceneManager : MonoSingleton<SceneManager>
         _TaskIndex += 1;
         CameraControl.Instance.SetTask(_TaskIndex);
         StateControl.Instance.SetTask(_TaskIndex);
+        ScenePanel.Instance.SetText(_TaskIndex);
 
         switch(_TaskIndex)
         {
@@ -51,6 +58,12 @@ public class SceneManager : MonoSingleton<SceneManager>
                 break;
             case 2:
                 _SeasoningControl.AwakeCall();
+                break;
+            case 3:
+                _CookingControl.AwakeCall();
+                break;
+            case 4:
+                _ServingControl.AwakeCall();
                 break;
         }    
     }
@@ -68,6 +81,12 @@ public class SceneManager : MonoSingleton<SceneManager>
             case 2:
                 _SeasoningControl.TouchCall(touch, eventData);
                 break;
+            case 3:
+                _CookingControl.TouchCall(touch, eventData);
+                break;
+            case 4:
+                _CookingControl.TouchCall(touch, eventData);
+                break;
         }
     }
 
@@ -79,11 +98,11 @@ public class SceneManager : MonoSingleton<SceneManager>
 
     public void WinGame()
     {
-
+        ScenePanel.Instance._SuccessPanel.Show();
     }
 
     public void LoseGame()
     {
-
+        ScenePanel.Instance._FailurePanel.Show(_TaskIndex);
     }
 }
