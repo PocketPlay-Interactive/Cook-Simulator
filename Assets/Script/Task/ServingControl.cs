@@ -17,6 +17,7 @@ public class ServingControl : MonoBehaviour
         _Models.ForEach((_Model, _Index) =>
         {
             _Model.localPosition = _LstModelLocalDefaultPosition[_Index];
+            _Model.localScale = VectorExtensions.Create(7.0f, 7.0f, 7.0f);
         });
     }
     // Start is called before the first frame update
